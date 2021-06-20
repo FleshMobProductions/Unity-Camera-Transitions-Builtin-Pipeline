@@ -20,6 +20,7 @@ namespace FMPUtils.Visuals.CameraTransition.Examples
         [SerializeField] private KeyCode keyBuiltinDiagonalTransition = KeyCode.Alpha4;
         [SerializeField] private KeyCode keyBuiltinDiamondTransition = KeyCode.Alpha5;
         [SerializeField] private KeyCode keyBuiltinAlphaFadeTransition = KeyCode.Alpha6;
+        [SerializeField] private KeyCode keyBuiltinDiagonal45Transition = KeyCode.Alpha7;
 
         private void Update()
         {
@@ -54,6 +55,11 @@ namespace FMPUtils.Visuals.CameraTransition.Examples
             else if (Input.GetKeyDown(keyBuiltinAlphaFadeTransition))
             {
                 CameraTransitionEffectController.Instance.ActivateTransition<AlphaFadeTransitionEffect>(fromCamera, toCamera, transitionDuration, reassignAudioListenerToTargetCamera);
+                wasTransitionTriggered = true;
+            }
+            else if (Input.GetKeyDown(keyBuiltinDiagonal45Transition))
+            {
+                CameraTransitionEffectController.Instance.ActivateTransition<Diagonal45DegTransitionEffect>(fromCamera, toCamera, transitionDuration, reassignAudioListenerToTargetCamera);
                 wasTransitionTriggered = true;
             }
 

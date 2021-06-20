@@ -95,21 +95,11 @@
                 float sizeX = pow(lerp(-0.01, 1.0, 1. - l), 3.);
                 float sizeY = 1. - smoothstep(0.0, 1., l);
     
-	            float alpha = 1. - pow(l * 1.612, 7.);
+                // Alpha could be used to multiply with the mask for a new mask to only get the part visible of the active diamond animation
+	            float alpha = saturate(1. - pow(l * 1.612, 7.)); 
                 
-                // Scalings tested with a grid size between 0.04 and 0.08
-                // A separate diagonal line is tried to be aligned with the end of the diamond pattern effect, 
-                // a threshold that determines that ever everything below the line should have the colCamera 
-                // (fully transitioned). This line should ideally move in sync with diagonal line formed where
-                // the diamond pattern transition stops
-                float scalingMul = 14.0 + (_GridSize - 0.03) / (0.04) * 13.2;
-                float diagonalProgressScaling = 1.0 + _GridSize * scalingMul;
-                float offsetMul = 11.0;
-                float diagonalOffset = -_GridSize * offsetMul;
-                // Get distance of the current pixel by adding the x and y of the pixel position. offset the value
-                // and add a scaled progess to get a diagonal line that approximately follows the end of the effect. 
-                bool isBelowDiagonalThreshold = diagonalOffset + ((pos.x + (1.0 - pos.y)) * 0.5) + _TransitionProgress * diagonalProgressScaling <= 1.0;
-                float mask = ((sizeX * (1. - rotatedUV.x / sizeY) > rotatedUV.y) && isBelowDiagonalThreshold) ? 1. : 0.;
+                float romb = (sizeX * (1. - rotatedUV.x / sizeY) > rotatedUV.y) ? 1. : 0.;
+                float mask = l > 0.99 ? 0 : romb;
                 
                 return lerp(colCamera, colTex, mask);
             }

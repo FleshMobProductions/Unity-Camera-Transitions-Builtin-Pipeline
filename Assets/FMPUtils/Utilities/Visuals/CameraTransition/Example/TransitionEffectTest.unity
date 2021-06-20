@@ -248,7 +248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fromCamera: {fileID: 1506071048}
   toCamera: {fileID: 1943277995}
-  transitionDuration: 2.5
+  transitionDuration: 3
   transitionTestMaterial: {fileID: 2100000, guid: a4ce28cbb8afc664ebcc9b3ec82648dd,
     type: 2}
   transitionTestMaskTexture: {fileID: 2800000, guid: 2ba2e54bd6163814ca4480f4b3802b7a,
@@ -259,6 +259,7 @@ MonoBehaviour:
   keyBuiltinDiagonalTransition: 52
   keyBuiltinDiamondTransition: 53
   keyBuiltinAlphaFadeTransition: 54
+  keyBuiltinDiagonal45Transition: 55
 --- !u!1 &458098204
 GameObject:
   m_ObjectHideFlags: 0
