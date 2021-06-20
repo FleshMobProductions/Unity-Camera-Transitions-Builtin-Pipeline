@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/FMPUtils/Utilities/Visuals/CameraTransition/Example/TransitionEffectTest.unity
+    guid: fc231fd81e18ab148bef9cee8bbd9217
   m_configObjects: {}
